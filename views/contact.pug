@@ -1,0 +1,70 @@
+extends layout 
+
+block content 
+    .container-fluid.col-xl-8
+        //Main Content of the Contact page
+        .container-fluid.shadow-lg.p-3.mb-3.rounded
+            .px-4.py-2.my-4.text-center
+                h1.display-4.fw-bold Contact us
+                img.d-block.mx-auto.mb-4(src='/images/android-chrome-512x512.png' alt='' width='200rem' height='auto')
+                h1.display-4.fw-bold Travel Experts
+                h2.display-5.fw-bold Dream. Explore. Discover.
+                .col-lg-6.mx-auto
+                p.lead.mb-4.fs-3.text-white.text-wrap
+                    | Please get in touch for details and queries.
+                .d-grid.gap-2.d-sm-flex.justify-content-sm-center
+            .row.text-center.contianer.m-5
+                .col-4.col-sm-12.col-lg-4.text-white
+                    i.bi.bi-telephone-fill(style='font-size: 6rem; color: rgb(255,255,255)')
+                    h3 Call us
+                    h3 403-xxx-xxx
+                .col-4.col-sm-12.col-lg-4.text-white
+                    i.bi.bi-envelope(style='font-size: 6rem; color: rgb(255,255,255)')
+                    h3 Reach us at
+                    h3
+                        a(style='color: white; text-decoration: none' href='mailto: info@travelexperts.ca')
+                        | info@travelexperts.ca
+                .col-4.col-sm-12.col-lg-4.text-white
+                    i.bi.bi-pin-map(style='font-size: 6rem; color: rgb(255,255,255)')
+                    h3 Visit us
+                    h3 Calgary, AB, Canada
+        //Show the agent details card from the database
+        if agentDetails
+            .container-fluid.shadow.d-flex.flex-column.p-3.col-sm-12.col-lg-6.bg-none(style='width: 100%;')
+                h1(style="text-align: center; color: white") Our Agents
+                .container-fluid.d-flex.flex-row.flex-wrap.mr-auto.justify-content-sm-center.justify-content-lg-start(style='width: 75%;')
+                    each agent in agentDetails
+                        .card.bg-light.m-3(style='width: 18rem;')
+                            .card-body 
+                                h5.card-title #{agent.agentName}
+                                h6.card-subtitle.mt-2.mb-1 Email: #{agent.agentEmail}
+                                    p.card-text.mt-3(style="margin-bottom:0") Contact:#{agent.agentPhone}
+                                    p.card-text(style="margin-bottom:0")  #{agent.agentPosition}
+                                    p.card-text Agency ID: #{agent.agencyId}
+        //Retrieve a particular user from the database.(Its here for the assignment task completion only)
+        if name
+            .container-fluid.shadow.d-flex.flex-column.p-3.col-sm-12.col-lg-6.bg-none(style='width: 100%;')
+                h1.text-white(style="text-align: center; color: white") Last Contacted by
+                .container-fluid.d-flex.flex-row.flex-wrap.mr-auto.justify-content-sm-center.justify-content-lg-center(style='width: 75%;color:white;')
+                    h5 #{name.contactFormName} with email : #{name.contactFormEmail} and Message : #{name.contactFormQuery}
+            //Contact form to get the details and store it in the database
+            .container-fluid.shadow.d-flex.flex-column.p-3.col-sm-12.col-lg-6(style='width: 100%; color: white')                    
+                .container-fluid.d-flex.flex-column.p-3.col-sm-12.col-lg-6(style='width: 50%; color: white')
+                    h1(style="text-align: center; color: white")
+                        | Want us to reach back? 
+                    h5(style="text-align: center; color: white") 
+                        |Enter your details and query and we will
+                        |reach out to you
+                    form#contact(action='/contact' method='POST')
+                        .mb-3.mt-3
+                        label.form-label.fs-5(for='contactFormName') Name
+                        input#contactFormName.form-control(type='text' placeholder='Enter your Name here' name='contactFormName')
+                        .mb-3.mt-3
+                            label.form-label.fs-5(for='contactFormName') Email
+                            input#contactFormEmail.form-control(type='email' placeholder='name@example.com' name='contactFormEmail')
+                        .mb-3
+                        label.form-label.fs-5(for='contactFormQuery') Query
+                        textarea#contactFormQuery.form-control(rows='3' name='contactFormQuery' maxlength='400')
+                        .d-grid.mt-3.mb-3.gap-3.col-6.mx-auto
+                            button.btn.btn-primary.btn-block.text-white(type='submit' form='contact')
+                                | Submit

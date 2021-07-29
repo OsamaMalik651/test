@@ -1,0 +1,35 @@
+extends layout 
+block content
+  main.col-xl-8      
+  .container-fluid.shadow.rounded.col-xl-8
+    .container-fluid.p-3.mb-3
+      .px-4.py-2.my-4.text-center
+        img.d-block.mx-auto.mb-4(src='/android-chrome-512x512.png' alt='' width='15%' height='auto')
+        h1.display-4.fw-bold Travel Experts
+        h2.display-5.fw-bold Dream. Explore. Discover.
+        h3.display-1.fw-bold #{greetings} 
+        h3 #{time}
+        .col-lg-6.mx-auto
+          p.lead.mb-4.fs-3.fst-italic.text-wrap
+            | We offer great deals for Holidays and tours all around the
+            | world.
+          .d-grid.gap-2.d-sm-flex.justify-content-sm-center
+  .container-fluid.shadow-lg.p-3.mb-3.rounded.col-xl-8
+    h1.display-4.fw-bold.px-4.py-1.my-1.text-center
+      | Destinations
+    h3.px-4.py-1.my-1.text-center Some of the destinations we offer...
+    .container-fluid
+      .row.justify-content-center.align-items-start.row-cols-1.row-cols-md-2.g-4.m-3.p-3.d-flex 
+    .container-fluid 
+    // Container to show the travel packages from the database
+    if Packages 
+        .container-fluid
+        #mycard.row.justify-content-center.align-items-start.row-cols-1.row-cols-md-2.g-4.m-2.p-2.d-flex
+            each package in Packages
+              .card.m-4.d-flex.align-self-stretch(style='width: 25rem;')
+                .d-flex.flex-fill.shadow
+                  img.card-img-top.rounded(src=`${package.imgsrc}` alt=`${package.imgtitle}` style='max-height: 20rem; object-fit: fill;')
+                .card-body.text-center.d-flex.flex-column.mt-auto
+                  h5.card-title.fs-2.text-center.justify-self-end #{package.imgtitle}
+                  p.card-text.text-center.justify-self-end #{package.packagedetail}
+                  a.btn.btn-primary.mt-auto(href=`${package.pagesource}`) More Info

@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  .container-fluid.shadow(style='width: 100%;height:max-content;')
+    .container-fluid.p-3.mb-3.px-4.py-2.my-4
+      h1= message
+      h2= error.status
+      pre #{error.stack}

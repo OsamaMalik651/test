@@ -1,0 +1,24 @@
+{
+  "name": "day12-expressgen",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "moment": "^2.29.1",
+    "mongodb": "^4.0.1",
+    "mongoose": "^5.13.3",
+    "mongoose-unique-validator": "^2.0.3",
+    "morgan": "~1.9.1",
+    "pug": "^2.0.4",
+    "random-greetings": "^1.0.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
