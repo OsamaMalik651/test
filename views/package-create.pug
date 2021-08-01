@@ -3,23 +3,32 @@ extends layout
 block content
   //Form to create the package and store it in the database
   .container-fluid.rounded.shadow-lg.col-lg-6.col-sm-12.d-flex.flex-column
-    h2.align-self-center(style="color: white") Create a new Package
-    form(method='POST' action='/')
+    h2.align-self-center Create a new Package
+    form(method='POST' action='/create')
       .form-floating.m-3
-        input#exampleFormControlInput1.form-control(type='number' placeholder='ID' name='id')
-        label.form-label(for='exampleFormControlInput1') Enter ID
+        input#exampleFormControlInput1.form-control(type='number' placeholder='Package ID' name='PackageId')
+        label.form-label(for='exampleFormControlInput1') Enter Package ID
       .form-floating.m-3
-        input#exampleFormControlInput1.form-control(type='text' placeholder='Enter image URL' name='imgsrc')
-        label.form-label(for='exampleFormControlInput1') Enter Image Source
+        input#exampleFormControlInput1.form-control(type='text' placeholder='Enter Package Name' name='PkgName')
+        label(for='exampleFormControlInput1') Enter Package Name
       .form-floating.m-3
-        textarea#floatingTextarea.form-control(type='text' placeholder='Leave a comment here' name='imgtitle')
-        label(for='floatingTextarea') Enter Image Title
+        input#exampleFormControlInput1.form-control(type='date' placeholder='Enter Package Start Date' name='PkgStartDate')
+        label(for='exampleFormControlInput1') Enter Package Start Date
       .form-floating.m-3
-        input#posturlid.form-control(placeholder='Post slug' name='pagesource')
-        label(for='posturlid') Enter Page URL
+        input#exampleFormControlInput1.form-control(type='date' placeholder='Enter Package End Date' name='PkgEndDate')
+        label(for='floatingTextarea') Enter Package End Date
       .form-floating.m-3
-        textarea#floatingTextarea.form-control(type='text' placeholder='Leave a comment here' name='packagedetail')
-        label(for='floatingTextarea') Enter Travel Package Detail  
+        input#exampleFormControlInput1.form-control(type='text' placeholder='Travel Package Description' name='PkgDesc')
+        label(for='exampleFormControlInput1') Enter Travel Package Description
+      .form-floating.m-3
+        input#exampleFormControlInput1.form-control(type='Number' placeholder='Package Base Price' name='PkgBasePrice')
+        label(for='exampleFormControlInput1') Enter Base Price
+      .form-floating.m-3
+        input#exampleFormControlInput1.form-control(type='text' placeholder='Agency Commission' name='PkgAgencyCommission')
+        label(for='exampleFormControlInput1') Enter Agency Commissions       
+      .form-floating.m-3
+        input#exampleFormControlInput1.form-control(type='text' placeholder='Enter image URL' name='PkgImgSrc')
+        label.form-label(for='exampleFormControlInput1') Enter Image Url for package     
       .d-grid.mt-3.mb-3.gap-3.col-6.mx-auto
         button.btn.btn-primary.m-3(type='submit') Submit
     

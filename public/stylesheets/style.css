@@ -1,11 +1,8 @@
 body {
-  padding: 1rem;
+  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-color: hsl(0, 0%, 96%);
 }
 
 a {
-  color: #00b7ff;
+  color: #00B7FF;
 }

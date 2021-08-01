@@ -19,7 +19,7 @@ html
       }
   // Header for all the pages
   header
-  .container-fluid.shadow-lg.p-3.mb-3.rounded(style="background-color:#DCD6F7")
+  .container-fluid.shadow-lg.p-3.mb-3.rounded
     nav.navbar.navbar-light.navbar-expand-lg.py-2
       .container-fluid
         a.navbar-brand.fs-1.fw-bold(href='#')
@@ -32,7 +32,9 @@ html
             li.nav-item.ms-4
               a.nav-link.active(aria-current='page' href='/') Home
             li.nav-item.ms-4
-              a.nav-link.active(href='/register') Register / Login
+              a.nav-link.active(href='/packages') Packages
+            li.nav-item.ms-4
+              a.nav-link.active(href='/account') Account
             li.nav-item.ms-4
               a.nav-link.active(href='/contact') Contact
             li.nav-item.ms-4
@@ -40,7 +42,7 @@ html
   body
     block content
     // Footer for all pages
-    footer.footer.py-3.shadow-lg.rounded.bg-none(style='background-color:#DCD6F7; position: relative; bottom: 0; width: 100%; margin-top: auto')
+    footer.footer.py-3.shadow-lg.rounded.bg-none(style=' position: relative; bottom: 0; width: 100%; margin-top: auto')
      .container.text-center
       h3  
         span.text-dark.fw-bold.fs-3

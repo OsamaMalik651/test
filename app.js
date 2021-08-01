@@ -3,30 +3,28 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
-
-var app = express();
+const mongoSanitize = require("express-mongo-sanitize");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
-var registerRouter = require("./routes/register");
-var contactRouter = require("./routes/contact");
-var aboutRouter = require("./routes/about");
+var accountRouter = require("./routes/Account");
+var contactRouter = require("./routes/Contact");
+var packagesRouter = require("./routes/Packages");
+var purchaseRouter = require("./routes/Purchase");
 
+var app = express();
 //
-//Require Mongoose module
-var mongoose = require("mongoose");
-//Set up mongoose connection to the required collection
-var mongoDB =
-  "mongodb+srv://osama_124:YpDYuGHSvbeeiuIM@cluster0.c0cml.mongodb.net/packages?retryWrites=true&w=majority";
-mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
-// Get the Connection
-var db = mongoose.connection;
-
-// Bind connection to error event (to get notification of connection errors)
-db.on("error", console.error.bind(console, "MongoDB connection error:"));
-db.once("open", function () {
-  console.log("we are connected");
+const mongoose = require("mongoose");
+mongoose.connect(process.env.MONGO_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
+const db = mongoose.connection;
+db.on("error", console.error.bind(console, "connection error:"));
+db.once("open", function () {
+  // we're connected!
+});
+
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
@@ -37,11 +35,23 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+// to replace prohibited characters with _, use:
+app.use(
+  mongoSanitize({
+    replaceWith: "_",
+  })
+);
+//---------------------------------
+//For Passport.js
+require("./my-passport").init(app);
+//---------------------------------
+
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
-app.use("/register", registerRouter);
+app.use("/account", accountRouter);
 app.use("/contact", contactRouter);
-app.use("/about", aboutRouter);
+app.use("/packages", packagesRouter);
+app.use("/purchasePage", purchaseRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
