@@ -11,7 +11,7 @@ var accountRouter = require("./routes/Account");
 var contactRouter = require("./routes/Contact");
 var packagesRouter = require("./routes/Packages");
 var purchaseRouter = require("./routes/Purchase");
-
+var aboutRouter = require("./routes/About");
 var app = express();
 //first test
 const mongoose = require("mongoose");
@@ -52,7 +52,7 @@ app.use("/account", accountRouter);
 app.use("/contact", contactRouter);
 app.use("/packages", packagesRouter);
 app.use("/purchasePage", purchaseRouter);
-
+app.use("/about", aboutRouter); 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
