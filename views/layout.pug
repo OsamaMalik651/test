@@ -27,7 +27,7 @@ html
   .container-fluid.shadow-lg.p-3.mb-3.rounded
     nav.navbar.navbar-light.navbar-expand-lg.py-2
       .container-fluid
-        a.navbar-brand.fs-1.fw-bold(href='#')
+        a.navbar-brand.fs-1.fw-bold(href='/')
           img.d-inline-block.align-text-top(src='/images/logo.png' alt='' width='60rem')
           |Travel Experts
         button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
@@ -56,3 +56,27 @@ html
                  sup &copy;
                  |  2021
     script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js' integrity='sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM' crossorigin='anonymous')
+
+
+      // back to top button
+      
+    button#myBtn(onclick='topFunction()' title='Go to top' style='display: none;') Top
+      
+      // Get the button:
+    script.
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+        function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+        } else {
+        mybutton.style.display = "none";
+        }
+        }
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+        }
