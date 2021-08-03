@@ -13,7 +13,7 @@ var packagesRouter = require("./routes/Packages");
 var purchaseRouter = require("./routes/Purchase");
 var aboutRouter = require("./routes/About");
 var app = express();
-//first test
+// end twice over
 const mongoose = require("mongoose");
 mongoose.connect(process.env.MONGO_URL, {
   useNewUrlParser: true,
