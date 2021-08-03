@@ -15,6 +15,7 @@ router.get("/details/:pkdId", async function (req, res, next) {
     if (err) {
       console.log(err);
     }
+      // console.log(
     res.render("packageDetail", {
       title: "Package detail Page",
       packageDetail: result,
