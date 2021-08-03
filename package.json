@@ -24,5 +24,17 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.12"
-  }
+  },
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OsamaMalik651/Travel-Experts--Threaded-Group-Prject-.git"
+  },
+  "author": "Tracy Crape",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OsamaMalik651/Travel-Experts--Threaded-Group-Prject-/issues"
+  },
+  "homepage": "https://github.com/OsamaMalik651/Travel-Experts--Threaded-Group-Prject-#readme",
+  "description": ""
 }
